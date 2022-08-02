@@ -1,0 +1,17 @@
+{lib, ...}: {
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = ["amd_pstate" "kvm-amd"];
+  boot.kernelParams = [
+    "initcall_blacklist=acpi_cpufreq_init"
+  ];
+  boot.extraModulePackages = [ ];
+
+  imports = [./file-systems.nix];
+
+  hardware.enableAllFirmware = true;
+  hardware.cpu.amd.updateMicrocode = true;
+  hardware.video.hidpi.enable = true;
+
+  powerManagement.cpuFreqGovernor = "performance";
+}

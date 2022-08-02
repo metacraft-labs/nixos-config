@@ -47,17 +47,42 @@
     nix-on-droid,
     flake-parts,
     ...
-  } @ inputs: let
-    defaultUser = "zlx";
-  in
-    flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
-      _module.args = {inherit defaultUser;};
-      imports = [./nixos/machines];
-      flake = {
-        nixOnDroidConfigurations.device = nix-on-droid.lib.nixOnDroidConfiguration {
-          config = ./nix-on-droid.nix;
-          system = "aarch64-linux";
+  }: let
+    system = "x86_64-linux";
+    defaultUser = "dimo";
+    users = [defaultUser];
+
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
+
+    unstablePkgs = import nixpkgs-unstable {
+      inherit system;
+      config.allowUnfree = true;
+    };
+
+    machines = builtins.attrNames (
+      nixpkgs.lib.filterAttrs
+      (n: v: v == "directory")
+      (builtins.readDir ./nixos/machines)
+    );
+
+    makeMachineConfig = defaultUser: hostname:
+      nixpkgs.lib.nixosSystem {
+        inherit pkgs system;
+        modules = [./nixos/machines/import-machine.nix];
+        specialArgs = {inherit defaultUser hostname unstablePkgs;};
+      };
+
+    makeHomeConfig = username:
+      home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+          ./nixos/home/full
+        ];
+        extraSpecialArgs = {
+          inherit username unstablePkgs omf-bobthefish;
         };
       };
       perSystem = {
