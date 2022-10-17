@@ -18,7 +18,6 @@
     TMPCODE = "${CODE}/tmp";
     REPOS = "${CODE}/repos";
     CFG = "${REPOS}/dotfiles";
-    DLANG = "${REPOS}/dlang";
     WORK = "${REPOS}/metacraft-labs";
   };
 

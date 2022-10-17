@@ -37,8 +37,8 @@
     ...
   }: let
     system = "x86_64-linux";
-    defaultUser = "zlx";
-    users = [defaultUser];
+    defaultUser = "mcl-kristin";
+    users = ["zlx" defaultUser];
 
     pkgs = nixpkgs.legacyPackages.${system};
 
