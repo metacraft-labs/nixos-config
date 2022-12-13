@@ -19,6 +19,21 @@ in {
         fsType = "vfat";
       };
     }
+    # // {
+    #   "/mnt/remote/" = {
+    #     device = "dimo@192.168.1.106:/home/dimo/";
+    #     fsType = "fuse";
+    #     options = [
+    #       "noauto"
+    #       "comment=systemd.automount"
+    #       "ssh_command=${user:
+    #         writeScript "ssh_as_${user}" ''
+    #           exec ${pkgs.sudo}/bin/sudo -i -u ${user} \
+    #             ${pkgs.openssh}/bin/ssh $@
+    #         ''}"
+    #     ];
+    #   };
+    # }
     // zfsFileSystems [
       "nixos"
       "nixos/nix"

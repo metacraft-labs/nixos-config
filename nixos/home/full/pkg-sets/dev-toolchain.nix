@@ -8,11 +8,23 @@
 # in favor of per project (dev)shell.nix files.
 {
   home.packages = with pkgs; [
+    rustup
+    clang
+    nodejs-16_x
+    yarn
+    wabt
+    go
+    pipenv
+    sage
+    nim
+    julia
+    just
     ## Build systems:
     # cmake gnumake ninja meson
 
     ## Debuggers:
-    # gdb lldb_13
+    gdb
+    lldb_13
 
     ## C/C++ toolchain:
     # GCC9 should have the highest priority
