@@ -32,6 +32,14 @@
 
     ## DevOps:
     dbeaver
+    lsof
+    ltrace
+    go_1_18
+    golint
+    gcc
+    golangci-lint
+    libtool_1_5
+    cmake
     # azure-cli
     # docker-compose
     # kubernetes-helm
