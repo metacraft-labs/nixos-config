@@ -8,6 +8,7 @@
 # in favor of per project (dev)shell.nix files.
 {
   home.packages = with pkgs; [
+    julia
     ## Build systems:
     # cmake gnumake ninja meson
 
