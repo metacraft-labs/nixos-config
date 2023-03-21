@@ -37,7 +37,7 @@
     ...
   }: let
     system = "x86_64-linux";
-    defaultUser = "zlx";
+    defaultUser = "monyarm";
     users = [defaultUser];
 
     pkgs = import nixpkgs {

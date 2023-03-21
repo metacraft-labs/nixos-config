@@ -4,5 +4,6 @@
     gh
     # qrencode
     # w3m
+    stow
   ];
 }

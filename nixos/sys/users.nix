@@ -7,7 +7,7 @@
   users.groups.plugdev = {};
 
   users.users."${defaultUser}" = {
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
     initialPassword = "";
     isNormalUser = true;
     extraGroups = ["wheel" "docker" "plugdev" "libvirtd"];

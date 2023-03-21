@@ -4,5 +4,7 @@
     gitAndTools.diff-so-fancy
     jq
     yq
+    stow
+    exa
   ];
 }

@@ -7,6 +7,7 @@
     ./shells/bash.nix
     ./shells/direnv.nix
     ./shells/fish.nix
+    ./shells/zsh.nix
     ./shells/nushell.nix
     ./xdg-symlinks.nix
   ];
