@@ -1,10 +1,7 @@
 {pkgs, ...}: {
   programs.zsh.enable = true;
-  programs.powerline.enable = true;
-
-  fonts.fonts = with pkgs; [
-    nerdfonts
-  ];
+  programs.zsh.initExtra = ''
+    source ~/.zshrc.bak'';
 
   home.packages = with pkgs; [
     powerline
