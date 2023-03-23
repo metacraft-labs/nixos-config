@@ -40,29 +40,6 @@
         "type": "github"
       }
     },
-    "home-manager_2": {
-      "inputs": {
-        "nixpkgs": [
-          "nixos-modules",
-          "nixpkgs"
-        ],
-        "utils": "utils_2"
-      },
-      "locked": {
-        "lastModified": 1679394816,
-        "narHash": "sha256-1V1esJt2YAxsKmRuGuB62RF5vhDAVFDvJXVNhtEO22A=",
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "rev": "e386ec640e16dc91120977285cb8c72c77078164",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "ref": "master",
-        "repo": "home-manager",
-        "type": "github"
-      }
-    },
     "nix-formatter-pack": {
       "inputs": {
         "nixpkgs": [
@@ -115,18 +92,20 @@
     "nixos-modules": {
       "inputs": {
         "flake-parts": "flake-parts",
-        "home-manager": "home-manager_2",
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1679476630,
-        "narHash": "sha256-WwIkDP/Jk2Nu2uuCftBnw3O3yAdVjkpCfYXWh9WRFG4=",
-        "type": "git",
-        "url": "file:///home/monyarm/code/repos/nixos-modules"
+        "lastModified": 1679323068,
+        "narHash": "sha256-KnSjDCMDI3fcYS/WCiGP+1ES0kpJRhJ+3/oEJgr/rGc=",
+        "owner": "metacraft-labs",
+        "repo": "nixos-modules",
+        "rev": "c140f819a6e12e006d1e5d928e93afbacbbc57b8",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/monyarm/code/repos/nixos-modules"
+        "owner": "metacraft-labs",
+        "repo": "nixos-modules",
+        "type": "github"
       }
     },
     "nixpkgs": {
@@ -286,21 +265,6 @@
       }
     },
     "utils": {
-      "locked": {
-        "lastModified": 1676283394,
-        "narHash": "sha256-XX2f9c3iySLCw54rJ/CZs+ZK6IQy7GXNY4nSOyu2QG4=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "3db36a8b464d0c4532ba1c7dda728f4576d6d073",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
-    "utils_2": {
       "locked": {
         "lastModified": 1676283394,
         "narHash": "sha256-XX2f9c3iySLCw54rJ/CZs+ZK6IQy7GXNY4nSOyu2QG4=",

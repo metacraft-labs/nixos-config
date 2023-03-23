@@ -28,7 +28,7 @@
     omf-bobthefish.flake = false;
 
     # nixos-modules.url = "git+file:///home/monyarm/code/repos/nixos-modules";
-    nixos-modules.url = "github:metacraft-labs/nixos-modules";
+    nixos-modules.url = "github:metacraft-labs/nixos-modules/sccache";
   };
 
   outputs = {
