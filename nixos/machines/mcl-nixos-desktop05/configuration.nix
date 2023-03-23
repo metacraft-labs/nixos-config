@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   networking.hostId = "f34e8d14";
   system.stateVersion = "22.11";
 
