@@ -26,6 +26,9 @@
 
     omf-bobthefish.url = "github:oh-my-fish/theme-bobthefish";
     omf-bobthefish.flake = false;
+
+    # nixos-modules.url = "git+file:///home/monyarm/code/repos/nixos-modules";
+    nixos-modules.url = "github:metacraft-labs/nixos-modules";
   };
 
   outputs = {
@@ -34,6 +37,7 @@
     nixpkgs-unstable,
     nix-on-droid,
     omf-bobthefish,
+    nixos-modules,
     ...
   }: let
     system = "x86_64-linux";
@@ -59,7 +63,20 @@
     makeMachineConfig = defaultUser: hostname:
       nixpkgs.lib.nixosSystem {
         inherit pkgs system;
-        modules = [./nixos/machines/import-machine.nix];
+        modules = [
+          ./nixos/machines/import-machine.nix
+          nixos-modules.lib.sccache
+          {
+            service.sccache.enable = true;
+            service.sccache.scheduler = false;
+            service.sccache.client = true;
+            service.sccache.server = true;
+            service.sccache.token = "TOKEN";
+            service.sccache.sched_url = "http://192.168.1.121:10600";
+            service.sccache.sched_addr = "192.168.1.121:10600";
+            service.sccache.server_addr = "192.168.1.109:10501";
+          }
+        ];
         specialArgs = {inherit defaultUser hostname unstablePkgs;};
       };
 
