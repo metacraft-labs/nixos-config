@@ -9,5 +9,6 @@
     ./pkg-sets/gui.nix
     ./pkg-sets/nix-related.nix
     ./pkg-sets/system-utils.nix
+    ./pkg-sets/personal.nix
   ];
 }

@@ -6,7 +6,7 @@
     ./pkg-sets/cli-utils.nix
     ./shells/bash.nix
     ./shells/direnv.nix
-    ./shells/fish.nix
+    #./shells/fish.nix
     ./shells/zsh.nix
     ./shells/nushell.nix
     ./xdg-symlinks.nix

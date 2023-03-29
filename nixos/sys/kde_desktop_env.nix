@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   services.xserver.enable = true;
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
@@ -7,9 +7,9 @@
   # See: https://github.com/nix-community/home-manager/blob/f911ebbec927e8e9b582f2e32e2b35f730074cfc/modules/misc/dconf.nix#L25-L26
   programs.dconf.enable = true;
 
-  hardware.pulseaudio.enable = false;
+  hardware.pulseaudio.enable = lib.mkForce false;
   # bluez needs pulseaudio CLI tools to be installed
-  environment.systemPackages = [pkgs.pulseaudio];
+  environment.systemPackages = [pkgs.pulseaudio pkgs.kate];
 
   security.rtkit.enable = true;
 

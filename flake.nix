@@ -24,11 +24,11 @@
       };
     };
 
-    omf-bobthefish.url = "github:oh-my-fish/theme-bobthefish";
-    omf-bobthefish.flake = false;
+    #omf-bobthefish.url = "github:oh-my-fish/theme-bobthefish";
+    #omf-bobthefish.flake = false;
 
-    # nixos-modules.url = "git+file:///home/monyarm/code/repos/nixos-modules";
-    nixos-modules.url = "github:metacraft-labs/nixos-modules/sccache";
+    nixos-modules.url = "git+file:///home/monyarm/code/repos/nixos-modules";
+    # nixos-modules.url = "github:metacraft-labs/nixos-modules/sccache";
   };
 
   outputs = {
@@ -36,7 +36,7 @@
     nixpkgs,
     nixpkgs-unstable,
     nix-on-droid,
-    omf-bobthefish,
+    #omf-bobthefish,
     nixos-modules,
     ...
   }: let
@@ -67,15 +67,18 @@
           ./nixos/machines/import-machine.nix
           nixos-modules.lib.sccache
           {
-            service.sccache.enable = true;
-            service.sccache.scheduler = false;
-            service.sccache.client = true;
-            service.sccache.server = true;
-            service.sccache.token = "TOKEN";
-            service.sccache.sched_url = "http://192.168.1.121:10600";
-            service.sccache.sched_addr = "192.168.1.121:10600";
-            service.sccache.server_addr = "192.168.1.109:10501";
+            services.sccache.enable = true;
+            services.sccache.scheduler = false;
+            services.sccache.client = true;
+            services.sccache.server = true;
+            services.sccache.token = "TOKEN";
+            services.sccache.sched_url = "http://192.168.1.110:10600";
+            services.sccache.sched_addr = "192.168.1.110:10600";
+            services.sccache.server_addr = "192.168.1.111:10501";
+            # service.sccache.server_addr = "192.168.1.112:10501";
+            # service.sccache.server_addr = "0.0.0.0:10501";
           }
+          nixos-modules.lib.icecream
         ];
         specialArgs = {inherit defaultUser hostname unstablePkgs;};
       };
@@ -87,7 +90,7 @@
           ./nixos/home/full
         ];
         extraSpecialArgs = {
-          inherit username unstablePkgs omf-bobthefish;
+          inherit username unstablePkgs; #omf-bobthefish;
         };
       };
 

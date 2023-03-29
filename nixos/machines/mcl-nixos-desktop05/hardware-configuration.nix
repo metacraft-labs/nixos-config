@@ -12,6 +12,8 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
+  environment.systemPackages = [pkgs.polychromatic pkgs.openrazer-daemon ];
+  hardware.openrazer.enable = true;
 
   fileSystems."/" =
     { device = "/dev/nvme0n1p2";

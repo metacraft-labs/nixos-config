@@ -10,6 +10,6 @@
     shell = pkgs.zsh;
     initialPassword = "";
     isNormalUser = true;
-    extraGroups = ["wheel" "docker" "plugdev" "libvirtd"];
+    extraGroups = ["wheel" "docker" "plugdev" "libvirtd" "openrazer" "adbusers"];
   };
 }
