@@ -12,6 +12,7 @@
     spotify
     vlc
     mpv
+    obsidian
 
     ## Office:
     libreoffice
@@ -24,13 +25,14 @@
     # slack
     # unstablePkgs.tdesktop
     # teams
-    # zoom-us
+    zoom-us
+    # resp-app
 
     ## Text editors / IDEs
     (
-      unstablePkgs.vscode-with-extensions.override
+      vscode-with-extensions.override
       {
-        vscodeExtensions = with unstablePkgs.vscode-extensions;
+        vscodeExtensions = with vscode-extensions;
           [
             matklad.rust-analyzer
             # vadimcn.vscode-lldb
@@ -45,7 +47,7 @@
             bbenoist.nix
             ms-dotnettools.csharp
             mhutchie.git-graph
-            github.copilot
+            # github.copilot
             ms-python.python
             ms-vscode.cpptools
           ]
@@ -157,7 +159,7 @@
               name = "solidity";
               publisher = "JuanBlanco";
               version = "0.0.141";
-              sha256 = "sha256-hEC6NlEsodWuR04UTyHWOdWc6S+0wsqSWqzCSs6VaB0=";
+              sha256 = "sha256-UWdjVY6+TyIRuIxru4+4YGqqI0HUU/8yV8BKNlIRIUQ=";
             }
             {
               name = "hardhat-solidity";
@@ -180,6 +182,8 @@
           ];
       }
     )
+
+    # vscode-fhs
 
     ## API clients:
     # insomnia

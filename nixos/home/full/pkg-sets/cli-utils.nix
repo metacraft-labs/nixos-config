@@ -5,7 +5,9 @@
     sshfs
     tmate
     powertop
+    pmutils
     # qrencode
+    extundelete
     # w3m
   ];
 }
