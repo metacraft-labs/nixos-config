@@ -2,7 +2,7 @@
   imports = [
     ../base
     ./dconf.nix
-
+    ./pkg-sets/python.nix
     ./pkg-sets/cli-utils.nix
     ./pkg-sets/dev-toolchain.nix
     ./pkg-sets/gnome-themes.nix
