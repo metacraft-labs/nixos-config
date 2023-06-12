@@ -40,6 +40,8 @@
     rage
     gh
     age-plugin-yubikey
+    lunarvim
+    just
   ];
 
   programs.eza = {
