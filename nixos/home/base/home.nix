@@ -15,4 +15,8 @@
 
   manual.manpages.enable = false;
   programs.home-manager.enable = true;
+  programs.emacs = {
+    enable = true;
+    package = pkgs.emacs;
+  };
 }

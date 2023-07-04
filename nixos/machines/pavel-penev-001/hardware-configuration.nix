@@ -20,4 +20,5 @@
   powerManagement.cpuFreqGovernor = "performance";
   hardware.enableRedistributableFirmware = true;
   hardware.cpu.amd.updateMicrocode = true;
+  hardware.bluetooth.enable = true;
 }
