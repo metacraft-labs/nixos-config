@@ -12,7 +12,7 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.05";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -32,12 +32,6 @@
     flake-utils-plus = {
       url = "github:gytis-ivaskevicius/flake-utils-plus";
     };
-
-    nixd = {
-      url = "github:nix-community/nixd";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
@@ -47,55 +41,29 @@
     nix-on-droid,
     flake-parts,
     ...
-  }: let
-    system = "x86_64-linux";
+  } @ inputs: let
     defaultUser = "dimo";
-    users = [defaultUser];
-
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-    };
-
-    unstablePkgs = import nixpkgs-unstable {
-      inherit system;
-      config.allowUnfree = true;
-    };
-
-    machines = builtins.attrNames (
-      nixpkgs.lib.filterAttrs
-      (n: v: v == "directory")
-      (builtins.readDir ./nixos/machines)
-    );
-
-    makeMachineConfig = defaultUser: hostname:
-      nixpkgs.lib.nixosSystem {
-        inherit pkgs system;
-        modules = [./nixos/machines/import-machine.nix];
-        specialArgs = {inherit defaultUser hostname unstablePkgs;};
-      };
-
-    makeHomeConfig = username:
-      home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [
-          ./nixos/home/full
-        ];
-        extraSpecialArgs = {
-          inherit username unstablePkgs omf-bobthefish;
+  in
+    flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
+      _module.args = {inherit defaultUser;};
+      imports = [./nixos/machines];
+      flake = {
+        nixOnDroidConfigurations.device = nix-on-droid.lib.nixOnDroidConfiguration {
+          config = ./nix-on-droid.nix;
+          system = "aarch64-linux";
         };
       };
       perSystem = {
         pkgs,
         unstablePkgs,
         system,
-        inputs',
         ...
       }: let
         makeHomeConfig = modules: username:
           home-manager.lib.homeManagerConfiguration {
             inherit pkgs modules;
-            extraSpecialArgs = {inherit username unstablePkgs inputs';};
+            extraSpecialArgs = {inherit username unstablePkgs;};
           };
       in {
         _module.args = {

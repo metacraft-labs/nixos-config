@@ -1,4 +1,5 @@
 {lib, ...}: {
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["amd_pstate" "kvm-amd"];
@@ -12,7 +13,6 @@
 
   hardware.enableAllFirmware = true;
   hardware.cpu.amd.updateMicrocode = true;
-  hardware.video.hidpi.enable = true;
 
   powerManagement.cpuFreqGovernor = "performance";
 }

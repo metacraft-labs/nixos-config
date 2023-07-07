@@ -10,6 +10,20 @@
   programs.git.lfs.enable = true;
 
   home.packages = with pkgs; [
+    # cargo
+    # rust-analyzer
+    # rls
+    # rustc
+    # cargo-fmt
+    # rust-gdbgui
+    # rustdoc
+    # rustup
+    # cargo-miri
+    # rustfmt
+    # cargo-clippy
+    # clippy-driver
+    # rust-gdb
+    # rust-lldb
     rustup
     clang
     nodejs-16_x

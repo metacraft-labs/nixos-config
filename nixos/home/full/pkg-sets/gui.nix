@@ -22,13 +22,14 @@
     ## IM / Video:
     unstablePkgs.discord
     tdesktop
+    viber
     # slack
     # unstablePkgs.tdesktop
     # teams
     zoom-us
     # resp-app
 
-    ## Text editors / IDEs
+    # Text editors / IDEs
     (
       vscode-with-extensions.override
       {
@@ -38,21 +39,37 @@
             # vadimcn.vscode-lldb
             bungcip.better-toml
             esbenp.prettier-vscode
-            tomoki1207.pdf
+            # tomoki1207.pdf
             davidanson.vscode-markdownlint
             editorconfig.editorconfig
             donjayamanne.githistory
             dbaeumer.vscode-eslint
             kamadorueda.alejandra
             bbenoist.nix
-            ms-dotnettools.csharp
+            # ms-dotnettools.csharp
             mhutchie.git-graph
-            # github.copilot
+            github.copilot
             ms-python.python
             ms-vscode.cpptools
+            eamodio.gitlens
+            waderyan.gitblame
+            streetsidesoftware.code-spell-checker
+            tamasfe.even-better-toml
           ]
           ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace
           [
+            {
+              publisher = "tintinweb";
+              name = "vscode-inline-bookmarks";
+              version = "0.1.0";
+              sha256 = "sha256-XnZiR+/3haqzJnnSzda0uhcViqg77dYcYrCcWx3nywg=";
+            }
+            {
+              publisher = "DanielSanMedium";
+              name = "dscodegpt";
+              version = "2.1.10";
+              sha256 = "sha256-LpL1skEg23QOang7Pe1Nu8BcaqsWxPwa3MqJb6D96KU=";
+            }
             {
               publisher = "julialang";
               name = "language-julia";
@@ -66,6 +83,12 @@
               sha256 = "sha256-unxcnQR2ccsydVG3H13e+xYRnW+3/ArIuBt0HlCLKio=";
             }
             {
+              publisher = "tonybaloney";
+              name = "vscode-pets";
+              version = "1.22.0";
+              sha256 = "sha256-0AVKNePQe8Kp0phxXefLKnWIH3SjIurUQlrnmEnMs2s=";
+            }
+            {
               publisher = "ms-vscode";
               name = "remote-repositories";
               version = "0.21.2022100601";
@@ -77,24 +100,24 @@
               version = "0.26.0";
               sha256 = "sha256-ZFrgsycm7/OYTN2sD3RGJG+yu0hTvADkHK1Gopm0XWc=";
             }
-            {
-              name = "rust-and-friends";
-              publisher = "nyxiative";
-              version = "1.0.0";
-              sha256 = "sha256-0Rbxq+p4G7hHxk/YR80g9jkSvr1HCxHhg6s7idSKyC0=";
-            }
-            {
-              name = "cpptools-extension-pack";
-              publisher = "ms-vscode";
-              version = "1.3.0";
-              sha256 = "sha256-rHST7CYCVins3fqXC+FYiS5Xgcjmi7QW7M4yFrUR04U=";
-            }
-            {
-              name = "cmake-tools";
-              publisher = "ms-vscode";
-              version = "1.13.11";
-              sha256 = "sha256-RCnIgLH3J3gZFWCpe8JXValx5qGXTysValwR2vn0xPg=";
-            }
+            # {
+            #   name = "rust-and-friends";
+            #   publisher = "nyxiative";
+            #   version = "1.0.0";
+            #   sha256 = "sha256-0Rbxq+p4G7hHxk/YR80g9jkSvr1HCxHhg6s7idSKyC0=";
+            # }
+            # {
+            #   name = "cpptools-extension-pack";
+            #   publisher = "ms-vscode";
+            #   version = "1.3.0";
+            #   sha256 = "sha256-rHST7CYCVins3fqXC+FYiS5Xgcjmi7QW7M4yFrUR04U=";
+            # }
+            # {
+            #   name = "cmake-tools";
+            #   publisher = "ms-vscode";
+            #   version = "1.13.11";
+            #   sha256 = "sha256-RCnIgLH3J3gZFWCpe8JXValx5qGXTysValwR2vn0xPg=";
+            # }
             {
               name = "lalrpop-highlight";
               publisher = "mnxn";
@@ -102,29 +125,35 @@
               sha256 = "sha256-teyL4IGx1rtgpXsRtuBft4xlpJrtktYuCl4HaH3pm3c=";
             }
             {
-              name = "rust-flash-snippets";
-              publisher = "lorenzopirro";
-              version = "2.0.1";
-              sha256 = "sha256-NBr2dHFkbNXtP6+3HmeAcvH4nRs4L2BSytNX0bpFLdM=";
+              name = "vscode-solidity-language";
+              publisher = "tintinweb";
+              version = "0.0.7";
+              sha256 = "sha256-m4mED7WWfIfjx+ZukYVQ3Ta2nPZSnRiS9XRsdXf3Fzs=";
             }
-            {
-              name = "rust-extension-pack";
-              publisher = "zerotaskx";
-              version = "1.1.0";
-              sha256 = "sha256-h/DUlhcGiBV6bToshK1IiBzxVQgegfQ/7QZcU9Zb55U=";
-            }
+            # {
+            #   name = "rust-flash-snippets";
+            #   publisher = "lorenzopirro";
+            #   version = "2.0.1";
+            #   sha256 = "sha256-NBr2dHFkbNXtP6+3HmeAcvH4nRs4L2BSytNX0bpFLdM=";
+            # }
+            # {
+            #   name = "rust-extension-pack";
+            #   publisher = "zerotaskx";
+            #   version = "1.1.0";
+            #   sha256 = "sha256-h/DUlhcGiBV6bToshK1IiBzxVQgegfQ/7QZcU9Zb55U=";
+            # }
             {
               name = "ts-debug";
               publisher = "kakumei";
               version = "0.0.6";
               sha256 = "sha256-MgsUthDbrJp6yIj9MMNDWBar0Q5b+8GQTPDuthVaQxI=";
             }
-            {
-              name = "better-cpp-syntax";
-              publisher = "jeff-hykin";
-              version = "1.16.1";
-              sha256 = "sha256-S0+JieVbzPvSWnhl0H52f0nzMv0+sMa4J8FSjEm5Pxs=";
-            }
+            # {
+            #   name = "better-cpp-syntax";
+            #   publisher = "jeff-hykin";
+            #   version = "1.16.1";
+            #   sha256 = "sha256-S0+JieVbzPvSWnhl0H52f0nzMv0+sMa4J8FSjEm5Pxs=";
+            # }
             {
               name = "remotehub";
               publisher = "github";
@@ -138,17 +167,35 @@
               sha256 = "sha256-2XUuI90rVnC8pRUgAOPw3wHa3GcnuGIr2U/qTCn3dKA=";
             }
             {
+              name = "solidity-debugger";
+              publisher = "hosho";
+              version = "0.2.1";
+              sha256 = "sha256-/dykzuTzByAmMIjPJCHqEwu/gIwsswzrcAfrTik8NTw=";
+            }
+            {
               name = "rust-syntax";
               publisher = "dustypomerleau";
               version = "0.6.1";
               sha256 = "sha256-o9iXPhwkimxoJc1dLdaJ8nByLIaJSpGX/nKELC26jGU=";
             }
             {
-              name = "doxdocgen";
-              publisher = "cschlosser";
-              version = "1.4.0";
-              sha256 = "sha256-InEfF1X7AgtsV47h8WWq5DZh6k/wxYhl2r/pLZz9JbU=";
+              name = "vscode-circom-pro";
+              publisher = "tintinweb";
+              version = "0.0.4";
+              sha256 = "sha256-nskvJaiX2CWHhau2eUtyQRuFBoa4Dae0LHjMJSz7afk=";
             }
+            {
+              name = "circom-plus";
+              publisher = "vuvoth";
+              version = "0.0.4";
+              sha256 = "sha256-ZscWIxQWWwkHf0eRfonUaZzCjB7k3xMG1g57hwvy7Fc=";
+            }
+            # {
+            #   name = "doxdocgen";
+            #   publisher = "cschlosser";
+            #   version = "1.4.0";
+            #   sha256 = "sha256-InEfF1X7AgtsV47h8WWq5DZh6k/wxYhl2r/pLZz9JbU=";
+            # }
             {
               name = "circom";
               publisher = "iden3";
@@ -158,14 +205,14 @@
             {
               name = "solidity";
               publisher = "JuanBlanco";
-              version = "0.0.141";
-              sha256 = "sha256-UWdjVY6+TyIRuIxru4+4YGqqI0HUU/8yV8BKNlIRIUQ=";
+              version = "0.0.163";
+              sha256 = "sha256-CJSI3uwKgiWBI+oMSGrOEIfWbCxE2OW+ZJ7a/zLVOlg=";
             }
             {
               name = "hardhat-solidity";
               publisher = "NomicFoundation";
-              version = "0.4.5";
-              sha256 = "sha256-ddJU9r/+RExsq6RBkI6P2kMgJ05zAWuDNz5Qjr9bg2o=";
+              version = "0.7.3";
+              sha256 = "sha256-uxaqEk/dUu0hhMkLBzBGzdN0GxVq8dvwDc1gEPOqvOg=";
             }
             {
               name = "Go";
@@ -178,6 +225,12 @@
               publisher = "ms-vscode";
               version = "0.1.2022092609";
               sha256 = "sha256-Fada2jRPmSiGw8KyobUbnxJaReQKA8dMtOxGBhcCvtc=";
+            }
+            {
+              name = "circom-lsp";
+              publisher = "rubydusa";
+              version = "0.0.3";
+              sha256 = "sha256-moOjDV/XxSxRwpQ9rZwRJqgPUMs8zjUPvh9YVKLZKqo=";
             }
           ];
       }
