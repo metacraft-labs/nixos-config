@@ -4,7 +4,7 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = ["amd_pstate" "kvm-amd"];
+  boot.kernelModules = ["amd_pstate" "kvm-amd" "amdgpu"];
   boot.extraModulePackages = [ ];
 
   imports = [./file-systems.nix];
@@ -16,8 +16,8 @@
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp227s0f4u2.useDHCP = lib.mkDefault true;
 
-  # powerManagement.cpuFreqGovernor = "schedutil";
-  powerManagement.cpuFreqGovernor = "performance";
+  powerManagement.cpuFreqGovernor = "schedutil";
+  # powerManagement.cpuFreqGovernor = "performance";
   hardware.enableRedistributableFirmware = true;
   hardware.cpu.amd.updateMicrocode = true;
   hardware.bluetooth.enable = true;

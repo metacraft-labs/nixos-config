@@ -6,6 +6,7 @@
   services.xserver.layout = "us,bg";
   services.xserver.xkbVariant = "dvorak,";  
   services.xserver.xkbOptions = "grp:lalt_lshift_toggle,altwin:ctrl_alt_win";
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   # Needed for Home Manager to be able to update DConf settings
   # See: https://github.com/nix-community/home-manager/blob/f911ebbec927e8e9b582f2e32e2b35f730074cfc/modules/misc/dconf.nix#L25-L26
