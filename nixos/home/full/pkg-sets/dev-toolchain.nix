@@ -26,7 +26,7 @@
     # rust-lldb
     rustup
     clang
-    nodejs-16_x
+    nodejs
     yarn
     wabt
     go
