@@ -12,7 +12,7 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -31,6 +31,12 @@
 
     flake-utils-plus = {
       url = "github:gytis-ivaskevicius/flake-utils-plus";
+    };
+
+    nixd = {
+      url = "github:nix-community/nixd";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -58,12 +64,13 @@
         pkgs,
         unstablePkgs,
         system,
+        inputs',
         ...
       }: let
         makeHomeConfig = modules: username:
           home-manager.lib.homeManagerConfiguration {
             inherit pkgs modules;
-            extraSpecialArgs = {inherit username unstablePkgs;};
+            extraSpecialArgs = {inherit username unstablePkgs inputs';};
           };
       in {
         _module.args = {
