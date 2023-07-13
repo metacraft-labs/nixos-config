@@ -42,6 +42,7 @@
     age-plugin-yubikey
     lunarvim
     just
+    ansible
   ];
 
   programs.eza = {
