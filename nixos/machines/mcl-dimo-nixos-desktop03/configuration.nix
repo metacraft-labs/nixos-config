@@ -1,11 +1,6 @@
 {
-  networking.hostId = "cc12d73b";
+  networking.hostId = "d423dbc6";
   system.stateVersion = "22.05";
-
-  services.asusd = {
-    enable = true;
-    enableUserService = true;
-  };
 
   services.zfs = {
     trim.enable = true;
