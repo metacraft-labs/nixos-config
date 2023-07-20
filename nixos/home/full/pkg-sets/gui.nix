@@ -22,7 +22,7 @@
     ## IM / Video:
     unstablePkgs.discord
     tdesktop
-    viber
+    # viber
     # slack
     # unstablePkgs.tdesktop
     # teams
@@ -36,7 +36,7 @@
         vscodeExtensions = with vscode-extensions;
           [
             matklad.rust-analyzer
-            # vadimcn.vscode-lldb
+            vadimcn.vscode-lldb
             bungcip.better-toml
             esbenp.prettier-vscode
             # tomoki1207.pdf
@@ -94,12 +94,12 @@
               version = "0.21.2022100601";
               sha256 = "sha256-Drm6b+2kPDadpr1obc6s0QOgEpxndiFM4RZIXH6uC/Q=";
             }
-            {
-              publisher = "webfreak";
-              name = "debug";
-              version = "0.26.0";
-              sha256 = "sha256-ZFrgsycm7/OYTN2sD3RGJG+yu0hTvADkHK1Gopm0XWc=";
-            }
+            # {
+            #   publisher = "webfreak";
+            #   name = "debug";
+            #   version = "0.26.0";
+            #   sha256 = "sha256-ZFrgsycm7/OYTN2sD3RGJG+yu0hTvADkHK1Gopm0XWc=";
+            # }
             # {
             #   name = "rust-and-friends";
             #   publisher = "nyxiative";

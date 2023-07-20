@@ -66,7 +66,7 @@ You most likely want to update some of these things:
 4. Update [`home.sessionVariables`](./nixos/home/home.nix)
 5. Add/remove home packages in [`nixos/home/pkg-sets`](./nixos/home/pkg-sets/)
 
-### 4. Apply home and system configuration
+### 4. Apply home and system configuratihoon
 
 * Switch to latest Home Manager configuration:
   ```bash

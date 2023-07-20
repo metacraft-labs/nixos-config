@@ -25,6 +25,7 @@
     # rust-gdb
     # rust-lldb
     rustup
+    boost178
     clang
     nodejs
     yarn
@@ -54,7 +55,9 @@
     rapidjson
     cpulimit
     prometheus
+    iperf
 
+    cmake
     ## Build systems:
     # cmake gnumake ninja meson
 
