@@ -26,7 +26,13 @@
     zoom-us
 
     ## Text editors / IDEs
-    unstablePkgs.vscode
+    #unstablePkgs.vscode
+    (vscode-with-extensions.override {
+      vscodeExtensions = with vscode-extensions; [
+        rust-lang.rust-analyzer
+        vadimcn.vscode-lldb
+      ];
+    })
 
     ## API clients:
     # insomnia

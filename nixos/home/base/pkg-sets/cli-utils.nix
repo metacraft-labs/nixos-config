@@ -15,6 +15,8 @@
     htop
     rage
     age-plugin-yubikey
+    mc
+    fpc
   ];
 
   programs.exa = {
