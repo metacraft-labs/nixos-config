@@ -22,7 +22,7 @@
     # ghc
 
     ## Python
-    # python3
+    python3
 
     ## crypto & network
     # nethogs # monitoring
