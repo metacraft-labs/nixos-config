@@ -27,10 +27,14 @@
 
     ## Text editors / IDEs
     #unstablePkgs.vscode
-    (vscode-with-extensions.override {
+    (unstablePkgs.vscode-with-extensions.override {
       vscodeExtensions = with vscode-extensions; [
         rust-lang.rust-analyzer
         vadimcn.vscode-lldb
+        mkhl.direnv
+        jnoortheen.nix-ide
+        redhat.vscode-yaml
+        ms-vscode.hexeditor
       ];
     })
 
