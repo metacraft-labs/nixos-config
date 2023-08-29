@@ -35,6 +35,7 @@
         jnoortheen.nix-ide
         redhat.vscode-yaml
         ms-vscode.hexeditor
+        mhutchie.git-graph
       ];
     })
 
