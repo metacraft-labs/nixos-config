@@ -11,7 +11,7 @@
 [merge]
   ff = only
 [core]
-	editor = nvim
+	editor = mcedit
 [include]
     path = git/aliases.gitconfig
     path = git/delta.gitconfig
