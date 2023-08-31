@@ -17,6 +17,7 @@
     age-plugin-yubikey
     mc
     fpc
+    cargo
   ];
 
   programs.exa = {
