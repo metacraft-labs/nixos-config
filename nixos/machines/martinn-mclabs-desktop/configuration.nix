@@ -6,9 +6,6 @@
     trim.enable = true;
     autoScrub.enable = true;
     autoScrub.pools = ["zfs_root"];
-    autoSnapshot = {
-      enable = true;
-    };
   };
 
   services.xserver.displayManager.gdm.autoSuspend = false;
