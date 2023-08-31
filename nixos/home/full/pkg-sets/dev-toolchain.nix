@@ -30,8 +30,24 @@
     ## D toolchain:
     #unstablePkgs.dmd unstablePkgs.dub unstablePkgs.ldc
 
+    ## Monitoring Metrics
+    grafana
+    prometheus
+    prometheus-node-exporter
+    grafana-loki
+    # promtail # HMS Breaks
+    go
+
     ## DevOps:
     dbeaver
+    #cargo
+
+    ## systemPackages ?
+    rustup
+    gcc
+    # rustc
+    # libgccjit
+
     # azure-cli
     # docker-compose
     # kubernetes-helm

@@ -5,6 +5,7 @@
 }: {
   home.packages = with pkgs; [
     conda
+
     (
       python311.withPackages (ps:
         with ps; [
@@ -12,9 +13,12 @@
           pandas
           scikit-learn
           matplotlib
+          scipy
 
+          pip
           ipython
           jupyter
+          virtualenv
         ])
     )
   ];

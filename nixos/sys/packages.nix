@@ -61,5 +61,8 @@
     tree
     jq
     direnv
+
+    # Extra
+    yarn
   ];
 }
