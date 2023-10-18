@@ -24,6 +24,8 @@
     ## Python
     python3
 
+    nim
+
     ## crypto & network
     # nethogs # monitoring
 
