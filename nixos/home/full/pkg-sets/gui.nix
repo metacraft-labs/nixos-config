@@ -65,5 +65,8 @@
     ## System:
     gparted
     wireshark-qt
+
+    ## Mergetool
+    meld
   ];
 }

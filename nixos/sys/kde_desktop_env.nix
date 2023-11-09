@@ -25,7 +25,19 @@
     alsa = {
       enable = true;
       support32Bit = true;
+      
     };
     pulse.enable = true;
   };
+  environment.etc.
+"wireplumber-old/main.lua.d/51-Focusrite.lua".text = ''
+  alsa_monitor.rules = {
+    {
+      matches = {{{ "device.name", "matches", "alsa_card.usb-Focusrite*" }}};
+      apply_properties = {
+        ["api.acp.probe-rate"] = 44100,
+      },
+    },
+  }
+'';
 }
