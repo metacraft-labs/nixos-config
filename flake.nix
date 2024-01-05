@@ -49,6 +49,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
+
+    cachix-deploy = {
+      url = "github:cachix/cachix-deploy-flake";
+    };
   };
 
   outputs = {
@@ -57,6 +61,7 @@
     nixpkgs-unstable,
     nix-on-droid,
     flake-parts,
+    cachix-deploy,
     ...
   } @ inputs: let
     defaultUser = "martin";
@@ -69,12 +74,16 @@
         ./nixos/nix-on-droid
       ];
       perSystem = {
+        self,
         pkgs,
         unstablePkgs,
         system,
         inputs',
+        lib,
         ...
       }: let
+        cachix-deploy-lib = cachix-deploy.lib pkgs;
+
         makeHomeConfig = modules: username:
           home-manager.lib.homeManagerConfiguration {
             inherit pkgs modules;
@@ -92,11 +101,34 @@
           };
         };
         devShells.default = import ./shell.nix {inherit pkgs;};
-        legacyPackages.homeConfigurations = rec {
+        legacyPackages.x86_64-linux.homeConfigurations = rec {
+          bareMetalMachines =
+            lib.pipe self.nixosConfigurations
+            [
+              (builtins.mapAttrs (name: sys: sys.config.system.build.toplevel))
+              (lib.filterAttrs (name: sys: !(lib.hasSuffix "-vm" name)))
+            ];
+
+          virtualMachines =
+            lib.pipe self.nixosConfigurations
+            [
+              (builtins.mapAttrs (name: sys: sys.config.virtualisation.vmVariant.system.build.toplevel))
+              (lib.filterAttrs (name: sys: lib.hasSuffix "-vm" name))
+            ];
+
           ${defaultUser} = home-config-full;
           home-config-base = makeHomeConfig [./nixos/home/base] defaultUser;
           home-config-full = makeHomeConfig [./nixos/home/full] defaultUser;
           home-config-macos = makeHomeConfig [./nixos/home/macos] "pkirov";
+        };
+        packages = {
+          cachix-deploy-bare-metal-spec = cachix-deploy-lib.spec {
+            agents = self.legacyPackages.x86_64-linux.bareMetalMachines;
+          };
+
+          cachix-deploy-vm-spec = cachix-deploy-lib.spec {
+            agents = self.legacyPackages.x86_64-linux.virtualMachines;
+          };
         };
       };
     };

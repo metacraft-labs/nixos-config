@@ -4,6 +4,7 @@
   defaultUser,
   ...
 }: let
+  inherit (inputs)  flake-utils-plus vscode-server;
   allHosts = builtins.attrNames (
     lib.filterAttrs
     (n: v: v == "directory")
@@ -13,8 +14,8 @@
   makeNixOSConfig = hostname:
     lib.nixosSystem {
       modules = [
-        inputs.flake-utils-plus.nixosModules.autoGenFromInputs
-        inputs.vscode-server.nixosModules.default
+        flake-utils-plus.nixosModules.autoGenFromInputs
+        vscode-server.nixosModules.default
         {
           networking.hostName = hostname;
           nixpkgs.config.allowUnfree = true;
