@@ -62,6 +62,7 @@
 
     ## X11, OpenGL, Vulkan:
     xclip
+    gnomeExtensions.dash-to-dock
     xorg.xhost
     glxinfo
     vulkan-tools

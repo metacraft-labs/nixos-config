@@ -41,6 +41,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    virt-manager
     exfat
     ntfs3g
     unzip
