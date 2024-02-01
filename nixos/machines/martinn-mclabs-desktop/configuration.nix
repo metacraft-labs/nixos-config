@@ -24,4 +24,11 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEbtxe6JCcKV+TWiojOVqp2qdf2dLyKQp85p3rcNekk+ zlx@zlx-flow-x13"
     ];
   };
+
+  services.zerotierone = {
+    enable = true;
+    joinNetworks = [
+      "56374ac9a4d1532e"
+    ];
+  };
 }
