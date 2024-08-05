@@ -41,6 +41,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    wasmtime
     exfat
     ntfs3g
     unzip

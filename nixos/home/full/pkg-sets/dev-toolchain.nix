@@ -43,8 +43,12 @@
     #cargo
 
     ## systemPackages ?
+    nodejs_20
     rustup
     gcc
+    nim
+    swagger-codegen
+    cmake
     # rustc
     # libgccjit
 

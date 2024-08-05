@@ -12,6 +12,7 @@
           numpy
           pandas
           scikit-learn
+          polars
           matplotlib
           scipy
 

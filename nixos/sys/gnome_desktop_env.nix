@@ -12,7 +12,6 @@
   environment.systemPackages = with pkgs; [
     pulseaudio
     lm_sensors
-
     # TODO: gnomeExtensions.astra-monitor
     gnomeExtensions.gsconnect
     gnomeExtensions.pano
@@ -22,6 +21,8 @@
     gnomeExtensions.tiling-assistant
     gnomeExtensions.weather-or-not
     gnomeExtensions.quick-settings-tweaker
+    gnomeExtensions.freon
+    protobuf_23
   ];
 
   security.rtkit.enable = true;
